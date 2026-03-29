@@ -1,0 +1,16 @@
+﻿using ConsoleApp1;
+
+namespace ThreadLab;
+
+static class Program
+{
+    private static readonly ArrayMinimumManager _minManager = new ArrayMinimumManager();
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter count of threads");
+        int countOfThreads = int.Parse(Console.ReadLine() ?? "0");
+    }
+
+    
+}

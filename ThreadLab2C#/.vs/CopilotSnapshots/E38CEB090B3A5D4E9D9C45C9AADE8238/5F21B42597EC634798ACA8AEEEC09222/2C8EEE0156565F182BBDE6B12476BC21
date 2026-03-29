@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ConsoleApp1
+{
+    public class ArrayMinimumFinder
+    {
+        private readonly ArrayMinimumManager _manager;
+        private readonly int _threadCount;
+
+        private readonly object _lockerForCount = new object();
+        private int _completedThreadCount = 0;
+
+        public ArrayMinimumFinder(ArrayMinimumManager manager, int threadCount)
+        {
+            _manager = manager;
+            _threadCount = threadCount;
+        }
+
+        public void FindMinInArr(int[] arr, int start, int end)
+        {
+            int min = arr[start];
+            for (int i = start + 1; i < end; i++)
+            {
+                if (arr[i] < min)
+                {
+                    min = arr[i];
+                }
+            }
+
+            _manager.UpdateMin(min);
+        }
+
+        public void StartFindingMin(int size)
+        {
+            int[] arr = GenereateArray(size);
+            int segmentSize = size / _threadCount;
+            _completedThreadCount = 0;
+
+            Thread[] threads = new Thread[_threadCount];
+            for (int i = 0; i < _threadCount; i++)
+            {
+                var (start, end) = GetSegment(i, segmentSize, size);
+                threads[i] = new Thread(() => ThreadWorker(arr, start, end));
+                threads[i].Start();
+            }
+
+            lock (_lockerForCount)
+            {
+                while (_completedThreadCount < _threadCount)
+                {
+                    Monitor.Wait(_lockerForCount);
+                }
+            }
+        }
+
+        private void ThreadWorker(int[] arr, int start, int end)
+        {
+            FindMinInArr(arr, start, end);
+            IncThreadCount();
+        }
+
+        private void IncThreadCount()
+        {
+            lock (_lockerForCount)
+            {
+                _completedThreadCount++;
+                Monitor.Pulse(_lockerForCount);
+            }
+        }
+
+        private (int start, int end) GetSegment(int index, int segmentSize, int totalSize)
+        {
+            int start = index * segmentSize;
+            int end = (index == _threadCount - 1) ? totalSize : start + segmentSize;
+            return (start, end);
+        }
+
+        private static int[] GenereateArray(int size)
+        {
+            int[] arr = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = i % 20000;
+            }
+            return arr;
+        }
+    }
+}

@@ -1,0 +1,2 @@
+D:\projects\ThreadLab2\ThreadLab2Ada\lab2\src\main.adb:39:69: warning: potentially unsynchronized barrier [enabled by default]
+D:\projects\ThreadLab2\ThreadLab2Ada\lab2\src\main.adb:39:69: warning: "worker_count" should be private component of type [enabled by default]

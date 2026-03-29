@@ -1,0 +1,30 @@
+﻿using System;
+using ConsoleApp1;
+
+namespace ThreadLab;
+
+static class Program
+{
+    private static readonly ArrayMinimumManager _minManager = new ArrayMinimumManager();
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter count of threads");
+        int countOfThreads = int.Parse(Console.ReadLine() ?? "0");
+
+        Console.WriteLine("Enter array size");
+        int size = int.Parse(Console.ReadLine() ?? "10000000");
+
+        Console.WriteLine("\n--- Testing ArrayMinimumFinder (Threads) ---");
+        var threadFinder = new ArrayMinimumFinder(_minManager, countOfThreads);
+        threadFinder.StartFindingMin(size);
+        Console.WriteLine($"Found minimum: {_minManager.GetMin()}");
+
+        Console.WriteLine("\n--- Testing ArrayMinimumFinderWithTasks (Tasks) ---");
+        var taskFinder = new ArrayMinimumFinderWithTasks(_minManager, countOfThreads);
+        taskFinder.StartFindingMin(size);
+        Console.WriteLine($"Found minimum: {_minManager.GetMin()}");
+        
+        Console.ReadLine();
+    }
+}

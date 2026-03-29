@@ -1,0 +1,83 @@
+﻿namespace ConsoleApp1
+{
+    using System;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    public class ArrayMinimumFinderWithTasks
+    {
+        private readonly ArrayMinimumManager _manager;
+        private readonly int _threadCount;
+
+        public ArrayMinimumFinderWithTasks(ArrayMinimumManager manager, int threadCount)
+        {
+            _manager = manager;
+            _threadCount = threadCount;
+        }
+
+        public void FindMinInArr(int[] arr, int start, int end)
+        {
+            int min = arr[start];
+            for (int i = start + 1; i < end; i++)
+            {
+                if (arr[i] < min)
+                {
+                    min = arr[i];
+                }
+            }
+
+            _manager.UpdateMin(min);
+        }
+
+        public void StartFindingMin(int size)
+        {
+            int[] arr = GenereateArray(size);
+            int segmentSize = size / _threadCount;
+
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+
+            using (CountdownEvent countdown = new CountdownEvent(_threadCount))
+            {
+                for (int i = 0; i < _threadCount; i++)
+                {
+                    var segment = GetSegment(i, segmentSize, size);
+                    Task.Run(() => ThreadWorker(arr, segment.StartIndex, segment.FinishIndex, countdown));
+                }
+
+                countdown.Wait();
+            }
+
+            sw.Stop();
+            Console.WriteLine($"Search time with Tasks: {sw.ElapsedMilliseconds} ms");
+        }
+
+        private void ThreadWorker(int[] arr, int start, int end, CountdownEvent countdown)
+        {
+            try
+            {
+                FindMinInArr(arr, start, end);
+            }
+            finally
+            {
+                countdown.Signal();
+            }
+        }
+
+        private Bound GetSegment(int index, int segmentSize, int totalSize)
+        {
+            int start = index * segmentSize;
+            int end = (index == _threadCount - 1) ? totalSize : start + segmentSize;
+            return new Bound(start, end);
+        }
+
+        private static int[] GenereateArray(int size)
+        {
+            int[] arr = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = i % 20000;
+            }
+            return arr;
+        }
+    }
+}
