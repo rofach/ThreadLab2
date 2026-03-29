@@ -34,7 +34,7 @@ RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U main%b		main.adb		c9347ad8 NE OO SU IL
+U main%b		main.adb		0909f82a NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -79,7 +79,7 @@ D interfac.ads		20250425081800 9111f9c1 interfaces%s
 D i-c.ads		20250425081800 e94c966a interfaces.c%s
 D i-cstrin.ads		20250425081800 5409c1a4 interfaces.c.strings%s
 D i-cstrea.ads		20250425081800 ffd01b9d interfaces.c_streams%s
-D main.adb		20260329215604 da86c75f main%b
+D main.adb		20260329220712 1abb45ad main%b
 D system.ads		20250425081800 a869df9e system%s
 D s-atacco.ads		20250425081800 5868e3ba system.address_to_access_conversions%s
 D s-arit64.ads		20250425081800 e45973b2 system.arith_64%s
@@ -125,37 +125,37 @@ D s-win32.ads		20250425081800 f77987dc system.win32%s
 G a e
 G c Z b b [main standard 5 11 none]
 X 1 ada.ads
-18K9*Ada 22e8 23|1r6 2r6 3r6 3r23 6r13 93r39 97r27 109r28 113r31
+18K9*Ada 22e8 23|1r6 2r6 3r6 3r23 6r13 93r39 97r27 110r28 114r31
 X 5 a-inteio.ads
 18K13*Integer_Text_IO[17|46] 23|1w10
 X 10 a-reatim.ads
-46K13*Real_Time 193e18 23|2w10 6r17 93r43 97r31 109r32 113r35
+46K13*Real_Time 193e18 23|2w10 6r17 93r43 97r31 110r32 114r35
 57O9*Time<duration> 23|6r27 93r53
 62O9*Time_Span<duration>
-69V13*Clock{57O9} 23|97s41 109s42
-79V14*"-"{62O9} 23|113s69
-118V13*To_Duration{duration} 23|113s45
+69V13*Clock{57O9} 23|97s41 110s42
+79V14*"-"{62O9} 23|114s69
+118V13*To_Duration{duration} 23|114s45
 X 16 a-textio.ads
 58K13*Text_IO 785e16 23|3w10 3r27
-565U14*Put_Line 23|81s7 85s10 96s13 111s13 112s13
+565U14*Put_Line 23|81s7 85s10 96s13 112s13 113s13
 X 19 interfac.ads
 68I9*Integer_64<long_long_integer>
 X 23 main.adb
-5U11*main 5b11 120l5 120t9
+5U11*main 5b11 121l5 121t9
 7i4 arr_size{positive} 9r28 12r37
-8t9 main_task 11b14 117l8 117t17
-12i7 length{positive} 13r45 15r37 94r52 101r32 102r33
+8t9 main_task 11b14 118l8 118t17
+12i7 length{positive} 13r45 15r37 94r51 103r33
 13i7 negative_index{positive} 56r16
 14i7 negative_value{integer} 56r35
 15A12 int_array(integer)<integer> 17r14
-16i7 worker_count{positive} 39r69 84m10 85r38 89r42 94r61 94r81
+16i7 worker_count{positive} 39r69 84m10 85r38 89r42 94r60 102r23
 17a7 data{15A12} 53r19 54m13 56m10 73r16 74r29
 18A12 thread_count_array(positive)<integer> 19r32
 19a7 thread_counts{18A12} 83r16 84r26
-21w17 result_manager 30b22 49l11 49t25 78r10 86r10 107r13
+21w17 result_manager 30b22 49l11 49t25 78r10 86r10 108r13
 22U20 submit_min 22>32 31b20 37l14 37t24 78s25
 22i32 val{integer} 31b32 33r16 34r31
-23Y16 get_final_min 23<31 39b16 42l14 42t27 107s28
+23Y16 get_final_min 23<31 39b16 42l14 42t27 108s28
 23i31 val{integer} 41m13
 24U20 reset 44b20 48l14 48t19 86s25
 26i10 current_min{integer} 33r22 34r16 41r20 46r13
@@ -164,7 +164,7 @@ X 23 main.adb
 51U17 initialize_array 51b17 57l11 57t27 82s7
 53i14 i{integer} 54r19 54r35
 59T17 find_min_task 61l11 61e24 63b17 79l11 79t24 88r63
-60Y16 start 60>23 60>36 67b17 70l14 70t19 104s28
+60Y16 start 60>23 60>36 67b17 70l14 70t19 105s28
 60i23 start_index{positive} 68r22
 60i36 finish_index{positive} 69r21
 64i10 first{positive} 68m13 72r19
@@ -175,14 +175,14 @@ X 23 main.adb
 72i14 i{integer} 73r22 74r35
 83i11 c{integer} 84r41
 88A18 finder_array(59T17)<integer> 89r23
-89a13 threads{88A18} 98r22 104r16
-91i13 first_index{positive} 99m16 104r35
-91i26 last_index{positive} 100m16 101r19 102m19 104r48
-92i13 final_result{integer} 107m43 111r42
-93o13 start_time{10|57O9} 97m13 113r71
-93o25 finish_time{10|57O9} 109m13 113r57
+89a13 threads{88A18} 98r22 105r16
+91i13 first_index{positive} 99m16 105r35
+91i26 last_index{positive} 100m16 103m19 105r48
+92i13 final_result{integer} 108m43 112r42
+93o13 start_time{10|57O9} 97m13 114r71
+93o25 finish_time{10|57O9} 110m13 114r57
 94i13 segment_length{positive} 99r31 100r30
-98i17 i{integer} 99r49 100r47 104r25
+98i17 i{integer} 99r49 100r47 102r19 105r25
 X 26 s-arit64.ads
 59I12*Int64{19|68I9}
 108V13*Multiply_With_Ovflo_Check64{59I12} 112i<c,__gnat_mulv64>22

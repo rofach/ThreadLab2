@@ -1,0 +1,15 @@
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\bin\Release\net8.0\MinimumFinder.exe
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\bin\Release\net8.0\MinimumFinder.deps.json
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\bin\Release\net8.0\MinimumFinder.runtimeconfig.json
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\bin\Release\net8.0\MinimumFinder.dll
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\bin\Release\net8.0\MinimumFinder.pdb
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.AssemblyInfoInputs.cache
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.AssemblyInfo.cs
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.csproj.CoreCompileInputs.cache
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.sourcelink.json
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.dll
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\refint\MinimumFinder.dll
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.pdb
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\MinimumFinder.genruntimeconfig.cache
+D:\projects\ThreadLab2\ThreadLab2C#\MinimumFinder\obj\Release\net8.0\ref\MinimumFinder.dll

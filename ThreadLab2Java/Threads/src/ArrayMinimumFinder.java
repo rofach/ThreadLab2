@@ -58,9 +58,12 @@ public class ArrayMinimumFinder {
         }
     }
 
-    private static Bound getSegment(int index, int threadsCount, int length) {
-        int start = (int) ((long) index * length / threadsCount);
-        int end = (int) ((long) (index + 1) * length / threadsCount);
-        return new Bound(start, end);
+    private static Bound getSegment(int index, int arrCount, int length) {
+        int segmentLength = length / arrCount;
+        int firstIndex = segmentLength * index;
+        
+        int lastIndex = (index == arrCount - 1) ? length : segmentLength * (index + 1);
+
+        return new Bound(firstIndex, lastIndex);
     }
 }

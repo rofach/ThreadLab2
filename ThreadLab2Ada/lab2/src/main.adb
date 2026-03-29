@@ -91,14 +91,15 @@ procedure main is
             first_index, last_index : positive;
             final_result : integer;
             start_time, finish_time : Ada.Real_Time.Time;
-            segment_length : constant positive := (length + worker_count - 1) / worker_count;
+            segment_length : constant positive := length / worker_count;
          begin
             put_line ("starting threads");
             start_time := Ada.Real_Time.Clock;
             for i in threads'range loop
                first_index := segment_length * (i - 1) + 1;
                last_index := segment_length * i;
-               if last_index > length then
+               
+               if i = worker_count then
                   last_index := length;
                end if;
                threads (i).start (first_index, last_index);

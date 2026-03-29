@@ -50,16 +50,12 @@ public class ArrayMinimumFinderWithCountDown {
         }
     }
 
-    private static Bound getSegment(int i, int arrCount, int length) {
+    private static Bound getSegment(int index, int arrCount, int length) {
         int segmentLength = length / arrCount;
+        int firstIndex = segmentLength * index;
+        
+        int lastIndex = (index == arrCount - 1) ? length : segmentLength * (index + 1);
 
-        int firstIndex = segmentLength * i;
-        int lastIndex = segmentLength * (i + 1);
-
-        if (lastIndex > length) {
-            lastIndex = length;
-        }
-    
         return new Bound(firstIndex, lastIndex);
     }
 }
